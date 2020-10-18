@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Serendipitous
+{
+	public class #SCRIPTNAME# : MonoBehaviour
+	{
+
+		void Start()
+		{
+			#NOTRIM#
+		}
+
+		void Update()
+		{
+			#NOTRIM#
+		}
+	}
+}

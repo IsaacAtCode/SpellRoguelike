@@ -1,0 +1,8 @@
+
+namespace Serendipitous
+{
+	public interface #SCRIPTNAME#
+	{
+		#NOTRIM#
+	}
+}
