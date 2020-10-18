@@ -1,6 +1,10 @@
 
 namespace Serendipitous
 {
+	/// <summary>
+	/// 
+	/// </summary>
+
 	public interface #SCRIPTNAME#
 	{
 		#NOTRIM#
