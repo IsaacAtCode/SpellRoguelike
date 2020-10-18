@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace IAG.Menus
+namespace Serendipitous.Menus
 {
 	public class MenuChanger : MonoBehaviour
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace IAG.Menus
+namespace Serendipitous.Menus
 {
     public class MenuQuit : MonoBehaviour
     {
