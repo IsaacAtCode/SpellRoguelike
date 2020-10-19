@@ -12,15 +12,20 @@ namespace Serendipitous.Resources
 
 	public class Resource : MonoBehaviour
 	{
-		[BoxGroup("Testing")]
+		[FoldoutGroup("Testing"), GUIColor(1,0,0)]
 		public bool DoDamage = false;
-		[BoxGroup("Testing")]
+		[FoldoutGroup("Testing"), GUIColor(1, 0, 0)]
 		public float damageAmount = 10;
 
-		[BoxGroup("Testing")]
+		[FoldoutGroup("Testing"), GUIColor(0, 1, 0)]
 		public bool DoHeal = false;
-		[BoxGroup("Testing")]
+		[FoldoutGroup("Testing"), GUIColor(0, 1, 0)]
 		public float healAmount = 25;
+
+
+
+
+
 
 		[BoxGroup("Value")]
 		[ShowInInspector]
@@ -39,12 +44,15 @@ namespace Serendipitous.Resources
 			}
 		}
 		[ShowInInspector]
-		public virtual float RegenAmount { get; protected set; }
+		[BoxGroup("Regen")]
+		public virtual float RegenAmount { get; set; }
 		[ShowInInspector]
-		public virtual float RecoveryTime { get; protected set; }
+		[BoxGroup("Regen")]
+		public virtual float RecoveryTime { get; set; }
+		[ShowInInspector]
+		public virtual float TickRate { get; set; } = 0.5f;
 
-		public virtual float TickRate { get; } = 1f;
-
+		[BoxGroup("Regen")]
 		public bool canRegen = true;
 		private bool isRegen = false;
 
@@ -56,6 +64,10 @@ namespace Serendipitous.Resources
 		{
 			get { return CurrentValue / MaxValue; }
 		}
+
+
+
+
 
 
 		private void Start()
@@ -95,6 +107,12 @@ namespace Serendipitous.Resources
 			CurrentValue = Mathf.Max(0, CurrentValue - amount);
 
 		}
+
+		public virtual void Use(float amount) //Damage without stopping Regen
+		{
+			CurrentValue = Mathf.Max(0, CurrentValue - amount);
+		}
+
 
 		IEnumerator Regen()
 		{

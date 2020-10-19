@@ -14,20 +14,10 @@ namespace Serendipitous
 		public Slider healthSlider;
 		public Text healthText;
 
-		private void Awake()
-		{
-			
-		}
-
 		public void UpdateSlider(float current, float max)
 		{
 			healthSlider.value = current / max;
-			healthText.text = current + "/" + max;
-		}
-
-		private void OnDestroy()
-		{
-			
+			healthText.text = (int)current + "/" + (int)max;
 		}
 	}
 }

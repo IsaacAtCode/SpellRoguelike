@@ -6,16 +6,20 @@ using UnityEngine.Events;
 namespace Serendipitous.Resources
 {
 	/// <summary>
-	/// 
+	/// Unit's Health
 	/// </summary>
 
 	public class Health : Resource
 	{
 		public override float MaxValue { get => 100; }
-		public override float RegenAmount { get => 1; }
+		private float _regenAmount = 1;
+		public override float RegenAmount { get => _regenAmount; set => _regenAmount = value; }
+
+		private float _recoveryTime;
 		public override float RecoveryTime
 		{
-			get { return Mathf.Max(TickRate, 5); }
+			get => _recoveryTime;
+			set => _recoveryTime = value;
 		}
 
 		public override float TickRate => base.TickRate;
