@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Lighting
   - 
   - 
   - 
@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Preload
   m_SortingLayers:
   - name: Default
     uniqueID: 0
