@@ -137,12 +137,12 @@ namespace Serendipitous.Movement
 		{
 			Vector3 jumpAmount = new Vector3(0, jumpHeight, 0);
 
-			if (groundCheck.IsGrounded())
+			if (groundCheck.IsGrounded)
 			{
 				jumpCount = 0;
 			}
 
-			if (groundCheck.IsGrounded() || jumpCount <= maxJumps)
+			if (groundCheck.IsGrounded || jumpCount <= maxJumps - 1)
 			{
 				forceReceiver.AddForce(jumpAmount);
 				jumpCount++;

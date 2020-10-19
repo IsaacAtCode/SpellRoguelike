@@ -51,7 +51,7 @@ namespace Serendipitous.Movement
 
 		private void ProcessGravity()
 		{
-			if (groundCheck.IsGrounded())
+			if (groundCheck.IsGrounded)
 			{
 				Value = new Vector3(Value.x, -groundedPullMagnitide, Value.z);
 			}
@@ -63,7 +63,7 @@ namespace Serendipitous.Movement
 			{
 				Value = new Vector3(Value.x, Value.y + gravityMagnitude * Time.deltaTime, Value.z);
 			}
-			wasGroundedLastframe = groundCheck.IsGrounded();
+			wasGroundedLastframe = groundCheck.IsGrounded;
 		}
 	}
 }

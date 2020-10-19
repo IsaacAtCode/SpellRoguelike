@@ -37,12 +37,12 @@ namespace Serendipitous.Movement
 
 		private void Update()
 		{
-			if (!wasGroundedLastFrame && groundCheck.IsGrounded())
+			if (!wasGroundedLastFrame && groundCheck.IsGrounded)
 			{
 				Value = new Vector3(Value.x, 0f, Value.z);
 			}
 
-			wasGroundedLastFrame = groundCheck.IsGrounded();
+			wasGroundedLastFrame = groundCheck.IsGrounded;
 
 			if (Value.magnitude < 0.2f)
 			{

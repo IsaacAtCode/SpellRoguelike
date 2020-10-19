@@ -90,7 +90,7 @@ namespace Serendipitous.Movement
 			Vector3 movementDirection;
 			float turnSmoothTime;
 
-			if (!groundCheck.IsGrounded())
+			if (!groundCheck.IsGrounded)
 			{
 				turnSmoothTime = airSmoothTime;
 			}

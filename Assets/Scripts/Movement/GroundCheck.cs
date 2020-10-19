@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Sirenix.OdinInspector;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,10 +12,20 @@ namespace Serendipitous.Movement
 	[AddComponentMenu("Movement/Ground Check")]
 	public class GroundCheck : MonoBehaviour
 	{
-		[SerializeField] private float groundDistance = 0.01f;
+		[SerializeField] private float groundDistance = 0.1f;
 		[SerializeField] private LayerMask groundLayers;
 
-		public bool IsGrounded()
+		[ShowInInspector]
+		public bool IsGrounded
+		{
+			get
+			{
+				return CheckGround();
+			}
+		}
+
+
+		public bool CheckGround()
 		{
 			return Physics.CheckSphere(gameObject.transform.position, groundDistance, groundLayers);
 		}
