@@ -19,8 +19,11 @@ namespace Serendipitous
 		public bool IsActive { get; private set; }
 		public int TimesCounted { get; private set; }
 
+		[ShowInInspector]
 		public float TimeElapsed => TotalTime - TimeRemaining;
+		[ShowInInspector]
 		public float PercentElapsed => TimeElapsed / TotalTime;
+		[ShowInInspector]
 		public bool IsCompleted => TimeRemaining <= 0;
 
 		public delegate void TimerCompleteHandler();
