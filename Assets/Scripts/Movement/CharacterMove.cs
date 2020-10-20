@@ -23,6 +23,9 @@ namespace Serendipitous.Movement
 		[FoldoutGroup("Components")]
 		[SerializeField]
 		private GroundCheck groundCheck = null;
+		[FoldoutGroup("Components")]
+		[SerializeField]
+		private Animator animator = null;
 
 		[BoxGroup("Speed")]
 		public float walkSpeed = 5;
@@ -35,6 +38,10 @@ namespace Serendipitous.Movement
 		public bool toggleSprint = false;
 		[BoxGroup("Crouching")]
 		public bool toggleCrouch = false;
+
+
+		public Vector2 newInput;
+
 
 		[ShowInInspector]
 		public float Speed
@@ -95,7 +102,7 @@ namespace Serendipitous.Movement
 		[BoxGroup("Jumping")]
 		public int maxJumps = 1;
 
-		protected Vector2 newInput;
+
 
 		private void OnValidate()
 		{
@@ -118,6 +125,11 @@ namespace Serendipitous.Movement
 			{
 				groundCheck = GetComponent<GroundCheck>();
 			}
+
+			if (!animator)
+			{
+				animator = GetComponentInChildren<Animator>();
+			}
 		}
 
 		protected virtual void Move()
@@ -131,6 +143,10 @@ namespace Serendipitous.Movement
 			{
 				inputProcessor.SetMovementSpeed(0f);
 			}
+
+			animator.SetFloat("Input Vertical", newInput.y);
+			animator.SetFloat("Input Horizontal", newInput.x);
+
 		}
 
 		protected virtual void Jump()

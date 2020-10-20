@@ -1798,7 +1798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1915597386}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000008940697, y: 0.90226483, z: 0.021622837}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7467817862665463578}
@@ -1817,7 +1817,7 @@ Animator:
   m_GameObject: {fileID: 1915597386}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e28ced13075c5a84eb9976ad49c2dec8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f09a23e223c61c84a8837a1093e2af6b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4131,11 +4131,13 @@ MonoBehaviour:
   inputProcessor: {fileID: 7555419643331757138}
   forceReceiver: {fileID: 7555419643331757136}
   groundCheck: {fileID: 7555419643331757135}
+  animator: {fileID: 1915597388}
   walkSpeed: 5
   sprintSpeed: 10
   crouchSpeed: 2.5
   toggleSprint: 0
   toggleCrouch: 0
+  newInput: {x: 0, y: 0}
   jumpCount: 0
   jumpHeight: 15
   maxJumps: 2
