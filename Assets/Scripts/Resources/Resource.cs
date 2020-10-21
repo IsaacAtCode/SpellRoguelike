@@ -121,8 +121,15 @@ namespace Serendipitous.Resources
 
 			while (CurrentValue < MaxValue)
 			{
-				CurrentValue += RegenAmount;
-				yield return new WaitForSeconds(TickRate);
+				if (canRegen)
+				{
+					CurrentValue += RegenAmount;
+					yield return new WaitForSeconds(TickRate);
+				}
+				if (!canRegen)
+				{
+					yield break;
+				}
 			}
 			isRegen = false;
 

@@ -28,6 +28,7 @@ namespace Serendipitous.Spells
 
 		private void Update()
 		{
+
 			if (Mouse.current.leftButton.isPressed)
 			{
 				if (!EquippedSpell.cooldown.IsActive)

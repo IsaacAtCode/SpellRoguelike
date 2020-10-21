@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Serendipitous.Resources;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ namespace Serendipitous.Spells
 		public float speed;
 		public float accel = 1f;
 
+		public DamageOverTime dot;
+
 		public void StartMove(Transform newTarget, float newSpeed)
 		{
 			target = newTarget;
@@ -24,9 +27,10 @@ namespace Serendipitous.Spells
 		private void Update()
 		{
 
-			if (Vector3.Distance(transform.position, target.position) < 0.1f)
+			if (Vector3.Distance(transform.position, target.position) < 0.01f)
 			{
-				Debug.Log("Hit");
+
+				//Debug.Log("Hit");
 				Destroy(this.gameObject);
 			}
 
@@ -40,5 +44,18 @@ namespace Serendipitous.Spells
 
 
 		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+
+			if (other.CompareTag("Enemy"))
+			{
+				if (other.gameObject.GetComponentInChildren<BuffManager>())
+				{
+					dot.Apply(other.gameObject.GetComponentInChildren<BuffManager>());
+				}
+			}
+		}
+
 	}
 }
