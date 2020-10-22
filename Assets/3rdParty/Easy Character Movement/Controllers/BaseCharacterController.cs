@@ -453,6 +453,7 @@ namespace ECM.Controllers
 		public bool isJumping
 		{
 			get { return _isJumping; }
+			set { _isJumping = value; }
 		}
 
 		/// <summary>
@@ -602,7 +603,7 @@ namespace ECM.Controllers
 				// On landing, reset _isJumping flag
 
 				if (!movement.wasGrounded && movement.isGrounded)
-					_isJumping = false;
+					isJumping = false;
 			}
 
 			// Update jump ungrounded timer (post jump tolerance time)
@@ -614,26 +615,26 @@ namespace ECM.Controllers
 
 			// If jump button not pressed, or still not released, return
 
-			if (!_jump || !_canJump)
+			if (!jump || !_canJump)
 				return;
 
 			// Is jump button pressed within pre jump tolerance time?
 
-			if (_jumpButtonHeldDownTimer > _jumpPreGroundedToleranceTime)
+			if (_jumpButtonHeldDownTimer > jumpPreGroundedToleranceTime)
 				return;
 
 			// If not grounded or no post grounded tolerance time remains, return
 
-			if (!movement.isGrounded && _jumpUngroundedTimer > _jumpPostGroundedToleranceTime)
+			if (!movement.isGrounded && _jumpUngroundedTimer > jumpPostGroundedToleranceTime)
 				return;
 
 			_canJump = false;           // Halt jump until jump button is released
-			_isJumping = true;          // Update isJumping flag
+			isJumping = true;          // Update isJumping flag
 			_updateJumpTimer = true;    // Allow mid-air jump to be variable height
 
-			// Prevent _jumpPostGroundedToleranceTime condition to pass until character become grounded again (_jumpUngroundedTimer reseted).
+			// Prevent jumpPostGroundedToleranceTime condition to pass until character become grounded again (jumpUngroundedTimer reseted).
 
-			_jumpUngroundedTimer = _jumpPostGroundedToleranceTime;
+			_jumpUngroundedTimer = jumpPostGroundedToleranceTime;
 
 			// Apply jump impulse
 

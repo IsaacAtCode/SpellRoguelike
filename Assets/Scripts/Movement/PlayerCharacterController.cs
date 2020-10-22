@@ -60,6 +60,7 @@ namespace Serendipitous.Movement
 			}
 		}
 
+
 		private void OnEnable()
 		{
 			input = new InputPlayer();
@@ -74,8 +75,9 @@ namespace Serendipitous.Movement
 			//input.Player.Crouch.performed += ctx => ToggleCrouch();
 			input.Player.Crouch.canceled += ctx => Crouch();
 
-			input.Player.Jump.performed += ctx => Jump();
-
+			input.Player.Jump.started += ctx => jump =true;
+			//input.Player.Jump.performed += ctx => Jump();
+			input.Player.Jump.canceled += ctx => jump = false;
 		}
 
 		private void OnDisable()
