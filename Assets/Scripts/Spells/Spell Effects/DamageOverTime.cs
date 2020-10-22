@@ -42,6 +42,7 @@ namespace Serendipitous.Spells
 		public override void Remove()
 		{
 			Debug.Log("Removed " + this);
+			isFinished = true;
 			manager.StopCoroutine(enumerator);
 		}
 
@@ -50,9 +51,22 @@ namespace Serendipitous.Spells
 			isFinished = false;
 			int currentTick = 0;
 
-			if (!isAOE)
+
+			int dotCount = 0;
+
+			if (isAOE)
 			{
-				while (currentTick <= tickCount)
+				dotCount = 999;
+			}
+			else
+			{
+				dotCount = tickCount;
+			}
+
+
+			while (currentTick <= dotCount)
+			{
+				if (!isFinished)
 				{
 					res.Damage(tickDamage);
 					Debug.Log(res.name + " is damaged for " + tickDamage + " (" + currentTick + ").");

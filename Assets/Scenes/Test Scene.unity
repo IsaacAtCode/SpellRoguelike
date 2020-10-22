@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc258c94a8524b8488924423915a569e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 7.5
+  height: 3
   dot:
     isFinished: 0
     tickDamage: 10
@@ -1825,12 +1827,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708954752}
-  - component: {fileID: 708954751}
-  - component: {fileID: 708954750}
-  - component: {fileID: 708954749}
-  - component: {fileID: 708954748}
-  - component: {fileID: 708954747}
-  - component: {fileID: 708954746}
   - component: {fileID: 708954753}
   - component: {fileID: 708954754}
   m_Layer: 0
@@ -1840,105 +1836,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &708954746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0212d80fbec7dc4b8f4ae34aabba871, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundDistance: 0.1
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 33554432
---- !u!114 &708954747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe371e534e1f13b42a7c8817abc1865e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 708954751}
-  movementHandler: {fileID: 708954750}
-  groundCheck: {fileID: 708954746}
-  mass: 1
-  drag: 5
---- !u!114 &708954748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940b0039b34b2534dacfb6c437f90018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 708954751}
-  movementHandler: {fileID: 708954750}
-  groundCheck: {fileID: 708954746}
-  groundedPullMagnitide: 10
---- !u!114 &708954749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9aadfd69f2e2854f9f6d86e78b46eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 708954751}
-  movementHandler: {fileID: 708954750}
-  groundCheck: {fileID: 708954746}
-  movementSpeed: 5
-  acceleration: 0.1
-  groundSmoothTime: 0.1
-  airSmoothTime: 0.3
---- !u!114 &708954750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c33edcf95d96144befc33de9daf465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 708954751}
---- !u!143 &708954751
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708954745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &708954752
 Transform:
   m_ObjectHideFlags: 0
@@ -1966,7 +1863,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
@@ -2933,7 +2830,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138226052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9168e057d7cd9ad46a4b10fdacaf8740, type: 3}
   m_Name: 
@@ -7084,8 +6981,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7174777976028667636}
-  - component: {fileID: 7555419643331757142}
-  - component: {fileID: 7555419643331757140}
   - component: {fileID: 7555419643331757139}
   - component: {fileID: 7555419643331757138}
   - component: {fileID: 7555419643331757137}
@@ -7107,13 +7002,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 7555419643331757134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0212d80fbec7dc4b8f4ae34aabba871, type: 3}
+  m_Script: {fileID: 11500000, guid: 5fbf2f5d5f5cce44eb53d96833039493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundDistance: 0.1
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 33554432
+  _speed: 5
+  _angularSpeed: 540
+  _acceleration: 50
+  _deceleration: 20
+  _groundFriction: 8
+  _useBrakingFriction: 0
+  _brakingFriction: 8
+  _airFriction: 0
+  _airControl: 0.2
+  _canSprint: 1
+  _canCrouch: 1
+  _standingHeight: 2
+  _crouchingHeight: 1
+  _baseJumpHeight: 1.5
+  _extraJumpTime: 0.5
+  _extraJumpPower: 25
+  _jumpPreGroundedToleranceTime: 0.15
+  _jumpPostGroundedToleranceTime: 0.15
+  _maxMidAirJumps: 1
+  _useRootMotion: 0
+  _rootMotionRotation: 0
+  playerCamera: {fileID: 1753355645}
+  _walkSpeed: 5
+  _sprintSpeed: 10
+  _crouchSpeed: 2.5
 --- !u!114 &7555419643331757136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7123,14 +7039,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7555419643331757134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe371e534e1f13b42a7c8817abc1865e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0eae04a4fe514bf4789aec1bdb93100b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7555419643331757140}
-  movementHandler: {fileID: 7555419643331757139}
-  groundCheck: {fileID: 7555419643331757135}
-  mass: 1
-  drag: 5
+  _maxLateralSpeed: 10
+  _maxRiseSpeed: 20
+  _maxFallSpeed: 20
+  _useGravity: 1
+  _gravity: {x: 0, y: -30, z: 0}
+  _slideOnSteepSlope: 0
+  _slopeLimit: 45
+  _slideGravityMultiplier: 2
+  _snapToGround: 1
+  _snapStrength: 0.5
 --- !u!114 &7555419643331757137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7140,47 +7061,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 7555419643331757134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940b0039b34b2534dacfb6c437f90018, type: 3}
+  m_Script: {fileID: 11500000, guid: dad2beb1f5ff1d146b5668716966d9ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 7555419643331757140}
-  movementHandler: {fileID: 7555419643331757139}
-  groundCheck: {fileID: 7555419643331757135}
-  groundedPullMagnitide: 10
---- !u!114 &7555419643331757138
-MonoBehaviour:
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 1
+  _groundLimit: 60
+  _stepOffset: 0.25
+  _ledgeOffset: 0
+  _castDistance: 0.5
+  _triggerInteraction: 1
+--- !u!54 &7555419643331757138
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7555419643331757134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9aadfd69f2e2854f9f6d86e78b46eb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7555419643331757140}
-  movementHandler: {fileID: 7555419643331757139}
-  groundCheck: {fileID: 7555419643331757135}
-  movementSpeed: 5
-  acceleration: 0.1
-  groundSmoothTime: 0.1
-  airSmoothTime: 0.3
---- !u!114 &7555419643331757139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7555419643331757134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1c33edcf95d96144befc33de9daf465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7555419643331757140}
---- !u!143 &7555419643331757140
-CharacterController:
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &7555419643331757139
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7189,40 +7098,10 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  m_Radius: 0.25
   m_Height: 1.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &7555419643331757142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7555419643331757134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0fde0a9d7dc214e967c9d1a623df89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 7555419643331757140}
-  inputProcessor: {fileID: 7555419643331757138}
-  forceReceiver: {fileID: 7555419643331757136}
-  groundCheck: {fileID: 7555419643331757135}
-  animator: {fileID: 1915597388}
-  walkSpeed: 5
-  sprintSpeed: 10
-  crouchSpeed: 2.5
-  toggleSprint: 0
-  toggleCrouch: 0
-  newInput: {x: 0, y: 0}
-  jumpCount: 0
-  jumpHeight: 15
-  maxJumps: 2
 --- !u!4 &7659004681675072681
 Transform:
   m_ObjectHideFlags: 0
