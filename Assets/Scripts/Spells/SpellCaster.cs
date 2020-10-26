@@ -22,8 +22,12 @@ namespace Serendipitous.Spells
 
 		//Transform spawnLocation, GameObject parent, Transform target)
 
-		public List<Spell> allSpells;
-		public Spell EquippedSpell;
+		//public List<Spell> allSpells;
+		//public Spell EquippedSpell;
+
+		public Cooldown cooldown =  new Cooldown(2);
+
+		public GameObject projectile;
 
 
 		private void Update()
@@ -31,28 +35,24 @@ namespace Serendipitous.Spells
 
 			if (Mouse.current.leftButton.isPressed)
 			{
-				if (!EquippedSpell.cooldown.IsActive)
-				{
-					EquippedSpell.cooldown.Start();
-					Projectile proj = Instantiate(EquippedSpell.projectile, rightHand.transform.position, rightHand.transform.rotation, spellParent.transform).GetComponent<Projectile>();
-					proj.StartMove(target.transform, 5f);
-				}
-				
-
-				
-
+				Cast();
 			}
 
-			if (EquippedSpell.cooldown.IsActive)
+			if (cooldown.IsActive)
 			{
-				EquippedSpell.cooldown.Update(Time.deltaTime);
+				cooldown.Update(Time.deltaTime);
 			}
 
 		}
 
-		public void Cast(Spell spell) // On left click behaviour
+		public void Cast() // On left click behaviour
 		{
-
+			if (!cooldown.IsActive)
+			{
+				cooldown.Start();
+				Projectile proj = Instantiate(projectile, rightHand.transform.position, rightHand.transform.rotation, spellParent.transform).GetComponent<Projectile>();
+				proj.StartMove(target.transform, 5f);
+			}
 		}
 
 		public void SecondaryCast(Spell spell) //On right click behaviour

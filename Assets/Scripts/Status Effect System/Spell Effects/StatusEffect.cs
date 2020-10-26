@@ -11,14 +11,11 @@ namespace Serendipitous.Spells
 	/// 
 	/// </summary>
 	[Serializable]
-	public class SpellEffect
+	public class StatusEffect
 	{
 		public object Source;
 		public bool isFinished = false;
-		public virtual void Apply(BuffManager buffManager, bool isAOE = false) { }
+		public virtual void Apply(StatusEffectManager buffManager, bool isAOE = false) { }
 		public virtual void Remove() { }
 	}
-
-	
-
 }

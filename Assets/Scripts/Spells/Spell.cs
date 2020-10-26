@@ -28,15 +28,18 @@ namespace Serendipitous.Spells
 
 		public DamageType damageType;
 
+		public SpellType spellType;
+
+
+
 		public ResourceCost resourceCost;
 
 		public Cooldown cooldown = new Cooldown(1);
 
-		public List<SpellEffect> effects = new List<SpellEffect>();
+		public List<StatusEffect> effects = new List<StatusEffect>();
 
 
 
-		public GameObject projectile;
 
 		public void Cast(Transform spawnLocation, GameObject parent, Vector3 direction)
 		{

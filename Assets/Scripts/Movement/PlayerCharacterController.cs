@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ECM;
 using ECM.Controllers;
-using Serendipitous.Input;
+using Serendipitous.PlayerInput;
 using ECM.Common;
 
 namespace Serendipitous.Movement

@@ -12,7 +12,7 @@ namespace Serendipitous.Spells
 	/// </summary>
 
 	[Serializable]
-	public class DamageOverTime : SpellEffect
+	public class DamageOverTime : StatusEffect
 	{
 		public float tickDamage = 10;
 		public float tickInterval = 1f;
@@ -20,7 +20,7 @@ namespace Serendipitous.Spells
 
 		private IEnumerator enumerator;
 
-		private BuffManager manager;
+		private StatusEffectManager manager;
 
 		[ShowInInspector]
 		[BoxGroup("Properties")]
@@ -30,11 +30,11 @@ namespace Serendipitous.Spells
 		public float TotalDamage { get => tickDamage * tickCount; }
 
 
-		public override void Apply(BuffManager bManager, bool isAOE = false)
+		public override void Apply(StatusEffectManager bManager, bool isAOE = false)
 		{
 			manager = bManager;
 
-			enumerator = DoT(manager.health, isAOE);
+			enumerator = DamageOverTimeCoroutine(tickDamage, tickCount, tickInterval, isAOE);
 
 			manager.StartCoroutine(enumerator);
 		}
@@ -46,31 +46,18 @@ namespace Serendipitous.Spells
 			manager.StopCoroutine(enumerator);
 		}
 
-		IEnumerator DoT(Resource res, bool isAOE = false)
+		IEnumerator DamageOverTimeCoroutine(float damagePerTick, int count, float interval, bool isAOE = false)
 		{
 			isFinished = false;
 			int currentTick = 0;
 
-
-			int dotCount = 0;
-
-			if (isAOE)
-			{
-				dotCount = 999;
-			}
-			else
-			{
-				dotCount = tickCount;
-			}
-
-
-			while (currentTick <= dotCount)
+			while (currentTick <= count)
 			{
 				if (!isFinished)
 				{
-					res.Damage(tickDamage);
-					Debug.Log(res.name + " is damaged for " + tickDamage + " (" + currentTick + ").");
-					yield return new WaitForSeconds(tickInterval);
+					// res.Damage(damagePerTick);
+					Debug.Log(damagePerTick + " (" + currentTick + ").");
+					yield return new WaitForSeconds(interval);
 					currentTick++;
 				}
 			}

@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   Name: Earth
-  colorPrimary: {r: 0.3207547, g: 0.25986898, b: 0.21938412, a: 0}
-  colorSecondary: {r: 0.3547841, g: 0.8962264, b: 0.28324133, a: 0}
+  Description: 
+  Icon: {fileID: 0}
+  ColorPrimary: {r: 0, g: 0, b: 0, a: 0}
+  ColorSecondary: {r: 0, g: 0, b: 0, a: 0}
+  innateBuff: {fileID: 0}
+  particleType: 0
+  particleColor: {r: 0, g: 0, b: 0, a: 0}
+  audio: {fileID: 0}

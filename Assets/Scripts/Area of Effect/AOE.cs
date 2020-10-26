@@ -30,26 +30,5 @@ namespace Serendipitous.AreaOfEffect
 			transform.localScale = newScale;
 		}
 
-
-		private void OnTriggerEnter(Collider other)
-		{
-			if (other.CompareTag("Player") || other.CompareTag("Enemy"))
-			{
-				GameObject obj = other.gameObject;
-
-				if (obj.GetComponentInChildren<BuffManager>())
-				{
-					obj.GetComponentInChildren<BuffManager>().AddSpellEffect(dot);
-
-					Debug.Log("Entered AOE");
-
-				}
-			}
-		}
-
-		private void OnTriggerExit(Collider other)
-		{
-			
-		}
 	}
 }

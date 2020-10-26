@@ -50,9 +50,9 @@ namespace Serendipitous.Spells
 
 			if (other.CompareTag("Enemy"))
 			{
-				if (other.gameObject.GetComponentInChildren<BuffManager>())
+				if (other.gameObject.GetComponentInChildren<StatusEffectManager>())
 				{
-					dot.Apply(other.gameObject.GetComponentInChildren<BuffManager>());
+					dot.Apply(other.gameObject.GetComponentInChildren<StatusEffectManager>());
 				}
 			}
 		}

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace Serendipitous.Input
+namespace Serendipitous.PlayerInput
 {
     public class @InputPlayer : IInputActionCollection, IDisposable
     {
@@ -301,6 +301,14 @@ namespace Serendipitous.Input
                     ""type"": ""PassThrough"",
                     ""id"": ""e9d40663-de37-46c4-a5b0-cad440b75a4d"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5b61e61-8829-4ddf-b854-43ba685aa343"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -723,6 +731,17 @@ namespace Serendipitous.Input
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""44bf3607-05a2-42df-a1d3-05be7f0cdaa3"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -812,6 +831,7 @@ namespace Serendipitous.Input
             m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+            m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -960,6 +980,7 @@ namespace Serendipitous.Input
         private readonly InputAction m_UI_RightClick;
         private readonly InputAction m_UI_TrackedDevicePosition;
         private readonly InputAction m_UI_TrackedDeviceOrientation;
+        private readonly InputAction m_UI_Escape;
         public struct UIActions
         {
             private @InputPlayer m_Wrapper;
@@ -974,6 +995,7 @@ namespace Serendipitous.Input
             public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
             public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
             public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+            public InputAction @Escape => m_Wrapper.m_UI_Escape;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -1013,6 +1035,9 @@ namespace Serendipitous.Input
                     @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                     @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                     @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
+                    @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                    @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                    @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -1047,6 +1072,9 @@ namespace Serendipitous.Input
                     @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                     @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                     @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                    @Escape.started += instance.OnEscape;
+                    @Escape.performed += instance.OnEscape;
+                    @Escape.canceled += instance.OnEscape;
                 }
             }
         }
@@ -1119,6 +1147,7 @@ namespace Serendipitous.Input
             void OnRightClick(InputAction.CallbackContext context);
             void OnTrackedDevicePosition(InputAction.CallbackContext context);
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+            void OnEscape(InputAction.CallbackContext context);
         }
     }
 }
