@@ -15,7 +15,19 @@ namespace Serendipitous.Spells
 	{
 		public object Source;
 		public bool isFinished = false;
-		public virtual void Apply(StatusEffectManager buffManager, bool isAOE = false) { }
+		public virtual void Apply() { }
+
+		public virtual void Tick() { }
+
 		public virtual void Remove() { }
+	}
+
+	public interface IStackable
+	{
+		void ApplyStack();
+		void ApplyStacks(int i);
+		void RemoveStack();
+		void RemoveStacks(int i);
+		void RemoveAllStacks();
 	}
 }

@@ -52,7 +52,7 @@ namespace Serendipitous.Spells
 			{
 				if (other.gameObject.GetComponentInChildren<StatusEffectManager>())
 				{
-					dot.Apply(other.gameObject.GetComponentInChildren<StatusEffectManager>());
+					//dot.Apply(other.gameObject.GetComponentInChildren<StatusEffectManager>());
 				}
 			}
 		}

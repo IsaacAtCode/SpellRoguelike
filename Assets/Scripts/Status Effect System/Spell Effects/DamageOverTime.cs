@@ -30,11 +30,11 @@ namespace Serendipitous.Spells
 		public float TotalDamage { get => tickDamage * tickCount; }
 
 
-		public override void Apply(StatusEffectManager bManager, bool isAOE = false)
+		public override void Apply()
 		{
-			manager = bManager;
+			//manager = bManager;
 
-			enumerator = DamageOverTimeCoroutine(tickDamage, tickCount, tickInterval, isAOE);
+			//enumerator = DamageOverTimeCoroutine(tickDamage, tickCount, tickInterval, isAOE);
 
 			manager.StartCoroutine(enumerator);
 		}

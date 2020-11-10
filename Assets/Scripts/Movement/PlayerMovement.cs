@@ -170,6 +170,8 @@ namespace Serendipitous.Movement
 			if (groundCheck.IsGrounded)
 			{
 				jumpCount = 0;
+
+				anim.ResetTrigger("Jump");
 			}
 
 			if (jumpCount <= attributes.maxMidAirJumps)
@@ -185,8 +187,12 @@ namespace Serendipitous.Movement
 
 				Vector3 jumpAmount = new Vector3(0, currJumpHeight, 0);
 
+				anim.SetTrigger("Jump");
+
 				forceReceiver.AddForce(jumpAmount);
 				jumpCount++;
+
+				anim.SetInteger("JumpCount", jumpCount);
 			}
 		}
 

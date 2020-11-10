@@ -28,10 +28,6 @@ namespace Serendipitous.Spells
 
 		public DamageType damageType;
 
-		public SpellType spellType;
-
-
-
 		public ResourceCost resourceCost;
 
 		public Cooldown cooldown = new Cooldown(1);

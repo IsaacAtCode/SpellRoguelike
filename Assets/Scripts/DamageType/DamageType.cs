@@ -34,8 +34,6 @@ namespace Serendipitous
 		[BoxGroup("Weaknesses")]
 		public Dictionary<DamageType, float> weaknesses = new Dictionary<DamageType, float>();
 
-		[BoxGroup("Innate Buff")]
-		public ScriptableBuff innateBuff;
 
 
 

@@ -25,45 +25,51 @@ namespace Serendipitous.Spells
 		//public List<Spell> allSpells;
 		//public Spell EquippedSpell;
 
-		public Cooldown cooldown =  new Cooldown(2);
+		//public Spell spell;
 
-		public GameObject projectile;
-
+		public Wall wall;
 
 		private void Update()
 		{
-
-			if (Mouse.current.leftButton.isPressed)
+			if (Input.GetMouseButtonDown(0))
 			{
-				Cast();
-			}
+				RaycastHit hit;
 
-			if (cooldown.IsActive)
-			{
-				cooldown.Update(Time.deltaTime);
-			}
+				var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-		}
+				if (Physics.Raycast(ray, out hit))
+				{
+					if (hit.collider.gameObject.layer == 25)
+					{
+						wall.Spawn(hit.point, this.transform.position);
+					}
 
-		public void Cast() // On left click behaviour
-		{
-			if (!cooldown.IsActive)
-			{
-				cooldown.Start();
-				Projectile proj = Instantiate(projectile, rightHand.transform.position, rightHand.transform.rotation, spellParent.transform).GetComponent<Projectile>();
-				proj.StartMove(target.transform, 5f);
+				}
+
+				
 			}
 		}
 
-		public void SecondaryCast(Spell spell) //On right click behaviour
+		private void CastSpell()
 		{
 
 		}
 
-		public void AlternativeCast(Spell spell) // On alt + left click behaviour
+		private void CastProjectile()
 		{
 
 		}
+
+		private void CastWall()
+		{
+
+		}
+
+		private void CastArea()
+		{
+
+		}
+
 
 	}
 }
